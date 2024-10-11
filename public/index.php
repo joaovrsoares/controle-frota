@@ -1,7 +1,11 @@
 <?php
+
 require '../config/database.php';
 require '../app/models/Viatura.php';
-require '../app/controllers/ViaturaCtrl.php';
+require '../app/controllers/ViaturaController.php';
 
-$viaturaModel = new Viatura($pdo);
-$controller = new ViaturaCtrl($viaturaModel);
+$viaturas = new Viatura($pdo);
+
+$rota = $_SERVER['REQUEST_URI'];
+echo $rota;
+echo 'joao\n';
