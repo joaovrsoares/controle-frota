@@ -1,6 +1,6 @@
 <?php
 
-$exibir_tabela = true;
+/* $exibir_tabela = true;
 
 $tem_erros = false;
 $erros_validacao = [];
@@ -45,11 +45,11 @@ if (tem_post()) {
             enviar_email($tarefa);
         }
     
-        header('Location: index.php?rota=tarefas');
+        header('Location: index.php?rota=viaturas');
         die();
     }
 }
 
-$tarefas = $repositorio_tarefas->buscar();
+$tarefas = $repositorio_tarefas->buscar(); */
 
 require __DIR__ . "/../views/template.php";

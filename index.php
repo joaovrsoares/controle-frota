@@ -13,11 +13,14 @@ $rota = "viaturas";
 
 if (array_key_exists("rota", $_GET)) {
     $rota = $_GET["rota"];
-    echo "Acessando rota " . $rota . ".php<br>";
 }
+
+// Adicione este log para verificar a rota sendo utilizada
+error_log("Rota solicitada: " . $rota);
 
 if (is_file("controllers/" . $rota . ".php")) {
     require "controllers/" . $rota . ".php";
 } else {
+    error_log("Arquivo não encontrado: controllers/" . $rota . ".php");
     require "controllers/404.php";
 }

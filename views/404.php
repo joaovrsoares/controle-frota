@@ -16,5 +16,6 @@
 
     <h3>Ops, página não encontrada!</h3>
     <p><a href="../index.php?rota=viaturas">Ir para a lista de viaturas.</a></p>
+    <?php echo "Requisitando por <code>controllers/" . $rota . ".php</code>."; ?>
 </body>
 </html>

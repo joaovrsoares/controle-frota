@@ -5,6 +5,10 @@
     color-scheme: only light;
 }
 
+body {
+    max-width: 1000px;
+}
+
 .titulo {
     display: flex;
     align-items: bottom;
@@ -13,4 +17,8 @@
 .titulo img {
     height: 1em;
     margin-right: 10px;
+}
+
+.acao {
+    font-size: 0.75em;
 }
