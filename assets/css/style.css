@@ -1,0 +1,16 @@
+:root {
+    --nc-bg-2: #f5f0eb;
+    --nc-lk-1: #c3b091;
+    --nc-ac-1: #bdb8af;
+    color-scheme: only light;
+}
+
+.titulo {
+    display: flex;
+    align-items: bottom;
+}
+
+.titulo img {
+    height: 1em;
+    margin-right: 10px;
+}

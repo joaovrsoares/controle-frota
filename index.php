@@ -1,19 +1,23 @@
 <?php
 
-require 'config/database.php';
-require 'app/models/Viatura.php';
-require 'app/controllers/Viatura.php';
+require "config.php";
+require "helpers/banco.php";
+require "helpers/auxiliares.php";
+require "models/Tarefa.php";
+require "models/Anexo.php";
+require "models/RepositorioTarefas.php";
 
-$viaturas = new Viatura($pdo);
+$repositorio_tarefas = new RepositorioTarefas($pdo);
 
-if ($_SERVER['REQUEST_URI'] === '') {
-    $rota = "Viatura";
-} else {
-    $rota = $_SERVER['REQUEST_URI'];
+$rota = "viaturas";
+
+if (array_key_exists("rota", $_GET)) {
+    $rota = $_GET["rota"];
+    echo "Acessando rota " . $rota . ".php<br>";
 }
 
-if (is_file('/app/controllers/' . $rota . '.php')) {
-    require '/app/controllers/' . $rota . '.php';
+if (is_file("controllers/" . $rota . ".php")) {
+    require "controllers/" . $rota . ".php";
 } else {
-    require __DIR__ . '/app/controllers/404.php';
+    require "controllers/404.php";
 }
