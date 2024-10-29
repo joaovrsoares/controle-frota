@@ -1,7 +1,10 @@
 :root {
+    /*
     --nc-bg-2: #f5f0eb;
     --nc-lk-1: #c3b091;
     --nc-ac-1: #bdb8af;
+    */
+    box-sizing: border-box;
     color-scheme: only light;
 }
 
@@ -19,6 +22,33 @@ body {
     margin-right: 10px;
 }
 
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.campos input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="text"]:focus-visible {
+    outline: 1px solid black;
+}
+
+button {
+    margin-top: 10px;
+}
+
 .acao {
     font-size: 0.75em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
