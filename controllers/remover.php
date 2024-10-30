@@ -1,5 +1,5 @@
 <?php
 
-$repositorio_tarefas->remover($_GET['id']);
+$repositorio_viaturas->remover($_GET['id']);
 
-header('Location: index.php?rota=tarefas');
+header('Location: index.php?rota=viaturas');

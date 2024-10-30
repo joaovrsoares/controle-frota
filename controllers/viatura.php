@@ -1,6 +1,6 @@
 <?php
 
-$tarefa = $repositorio_tarefas->buscar($_GET['id']);
+$tarefa = $repositorio_viaturas->buscar($_GET['id']);
 
 $tem_erros = false;
 $erros_validacao = array();
@@ -31,4 +31,4 @@ if (tem_post()) {
 
 $tarefa = $repositorio_tarefas->buscar($_GET['id']);
 
-include __DIR__ . "/../views/template_tarefa.php";
+include __DIR__ . "/../views/template_viatura.php";

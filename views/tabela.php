@@ -5,7 +5,7 @@
         <th style="width: 150px" colspan="2">Falta para troca</th>
         <th style="width: 100px">Odômetro atual</th>
         <th style="width: 100px">Próxima troca</th>
-        <th style="width: 70px">Ações</th>
+        <th style="width: 72px">Ações</th>
     </tr>
     <tr>
         <td>VTR PM2272</td>
@@ -14,23 +14,26 @@
         <td>2.032 km</td>
         <td>61328 km</td>
         <td>63.360 km</td>
-        <td class="acao">Editar<br>Excluir</td>
+        <td>
+            <a href="index.php?rota=editar&id=<?php echo $viatura->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>
+            <a href="index.php?rota=remover&id=<?php echo $viatura->getId();?>" title="Remover" class="acao">🗑️ Remover</a>
+        </td>
     </tr>
 
 
-    <!--<?php foreach($tarefas as $tarefa) : ?>
+    <?php foreach($viaturas as $viatura) : ?>
         <tr>
             <td>
-                <a href="index.php?rota=tarefa&id=<?php echo $tarefa->getId();?>"><?php echo htmlentities($tarefa->getNome());?></a>
+                <a href="index.php?rota=tarefa&id=<?php echo $viatura->getPrefixo();?>"><?php echo 'VTR PM' . htmlentities($viatura->getPrefixo());?></a>
             </td>
-            <td><?php echo htmlentities($tarefa->getDescricao()); ?></td>
-            <td class="centro"><?php echo converte_data_para_tela($tarefa->getPrazo());?></td>
-            <td class="centro"><?php echo converte_prioridade($tarefa->getPrioridade());?></td>
-            <td class="centro"><?php echo converte_concluida($tarefa->getConcluida());?></td>
+            <td><?php echo htmlentities($viatura->getMarca() . ' ' . $viatura->getModelo()); ?></td>
+            <td class="centro"><?php echo converte_data_para_tela(dias_restantes('2024-11-01')) . 'dias';?></td>
+            <td class="centro"><?php echo quilometros_restantes(1000);?></td>
+            <td class="centro"><?php echo converte_concluida($viatura->getConcluida());?></td>
             <td>
-                <a href="index.php?rota=editar&id=<?php echo $tarefa->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>
-                <a href="index.php?rota=remover&id=<?php echo $tarefa->getId();?>" title="Remover" class="acao">🗑️ Remover</a>
+                <a href="index.php?rota=editar&id=<?php echo $viatura->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>
+                <a href="index.php?rota=remover&id=<?php echo $viatura->getId();?>" title="Remover" class="acao">🗑️ Remover</a>
             </td>
         </tr>
-    <?php endforeach; ?>-->
+    <?php endforeach; ?>
 </table>

@@ -3,11 +3,12 @@
 require "config.php";
 require "helpers/banco.php";
 require "helpers/auxiliares.php";
-require "models/Tarefa.php";
-require "models/Anexo.php";
-require "models/RepositorioTarefas.php";
+require "models/Viatura.php";
+require "models/Odometro.php";
+require "models/RepositorioViaturas.php";
 
-$repositorio_tarefas = new RepositorioTarefas($pdo);
+$repositorio_viaturas = new RepositorioViaturas($pdo);
+$odometro = new Odometro();
 
 $rota = "viaturas";
 

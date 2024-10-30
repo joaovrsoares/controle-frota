@@ -1,86 +1,10 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-
 function tem_post() {
     if (count($_POST) > 0) {
         return true;
     }
     return false;
-}
-
-function enviar_email($tarefa, $anexos = array()) {
-    $corpo = preparar_corpo_email($tarefa, $anexos);
-    $email = new PHPMailer();
-
-    # Configuração do PHPMailer
-    $email->isSMTP();
-    $email->Host = "smtp.gmail.com";
-    $email->Port = 587;
-    $email->SMTPSecure = "tls";
-    $email->SMTPAuth = true;
-    $email->Username = "meuemail@email.com";
-    $email->Password = "minhasenha";
-    $email->setFrom("meuemail@email.com", "Avisador de tarefas");
-    $email->addAddress(EMAIL_NOTIFICACAO);
-    $email->Subject = "Aviso de tarefa: {$tarefa['nome']}";
-    $email->msgHTML($corpo);
-
-    foreach ($tarefa->getAnexos() as $anexo) {
-        $email->addAttachment(__DIR__ . "/../anexos/{$anexo->getArquivo()}");
-    }
-
-    $email->send();
-}
-
-function preparar_corpo_email($tarefa) {
-    ob_start();
-    include __DIR__ . "/../template_email.php";
-
-    $corpo = ob_get_contents();
-
-    ob_end_clean();
-
-    return $corpo;
-}                  
-
-/*function montar_email() {
-    $tem_anexos = '';
-
-    if (count($anexos) > 0) {
-        $tem_anexos = "<p><strong>Atenção!</strong> Esta tarefa contém anexos!</p>";
-    }
-
-    $corpo = "
-        <html lang='pt-BR'>
-            <head>
-                <meta charset=\"utf-8\">
-                <title>Gerenciador de tarefas</title>
-                <link rel=\"stylesheet\" href=\"tarefas.css\" type=\"text/css\">
-            </head>
-            <body>
-                <h1>Tarefa: {$tarefa['nome']}</h1>
-                <p><strong>Concluida:</strong> " . converte_concluida($tarefa['concluida']) . "</p>
-                <p><strong>Descrição:</strong>" . nl2br($tarefa['descricao']) . "</p>
-                <p><strong>Prazo:</strong>" . converte_data_para_exibir($tarefa['prazo']) . "</p>
-                <p><strong>Prioridade:</strong>" . converte_prioridade($tarefa['prioridade']) . "</p>
-                {$tem_anexos}
-            </body>
-        </html>
-    ";
-}*/
-
-function tratar_anexo($anexo) {
-    $padrao = '/^.+(\.pdf$|\.zip$)$/';
-    $resultado = preg_match($padrao, $anexo['name']);
-
-    if (! $resultado) {
-        return false;
-    }
-
-    move_uploaded_file($anexo['tmp_name'], __DIR__ . "/../anexos/{$anexo['name']}");
-    
-    return true;
 }
 
 function validar_data($data){
@@ -172,4 +96,15 @@ function converte_data_para_tela($data) {
     $data_exibir = "{$dados[2]}/{$dados[1]}/{$dados[0]}";
 
     return $data_exibir;
+}
+
+function dias_restantes($dataFutura) {
+    $dataAtual = new DateTime();
+    $dataFutura = new DateTime($dataFutura);
+    $diferenca = $dataAtual->diff($dataFutura);
+    return $diferenca->days * ($diferenca->invert ? -1 : 1);
+}
+
+function quilometros_restantes($km) {
+    return $odometro->getOdometro() - $km;
 }

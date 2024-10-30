@@ -21,7 +21,7 @@
 
     <details>
         <summary>Cadastrar nova viatura</summary>
-        <form action="/controle_frota/viaturas/cadastrar" method="POST">
+        <form method="POST">
             <div class="campos">
                 <div>
                     <label for="prefixo">Prefixo</label>

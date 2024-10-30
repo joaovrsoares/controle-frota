@@ -41,10 +41,6 @@ if (tem_post()) {
     if (! $tem_erros) {
         $repositorio_tarefas->atualizar($tarefa);
         
-        if (isset($_POST['lembrete']) && $_POST['lembrete'] == '1') {
-            enviar_email($tarefa);
-        }
-        
         header('Location: index.php?rota=tarefas');
         die();
     }
