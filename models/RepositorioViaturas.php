@@ -99,7 +99,7 @@ class RepositorioViaturas {
         $resultado = $this->bd->query($sqlBusca);
 
         $viatura = $resultado->fetchObject('viatura');
-        $viatura->setOdometro($this->buscar_anexos($viatura->getId()));
+        $viatura->setOdometro($this->buscar_odometros($viatura->getId()));
 
         return $viatura;
     }
@@ -110,7 +110,7 @@ class RepositorioViaturas {
                 (viatura_id, quilometragem, data)
             VALUES (
                 '{$odometro->getViaturaId()}',
-                '{$odometro->getOdometro()}',
+                '{$odometro->getQuilometragem()}',
                 '{$odometro->getData()}'
             )
         ";
@@ -118,7 +118,7 @@ class RepositorioViaturas {
         $this->bd->query($sqlGravar);
     }
 
-    public function buscar_odometros($viatura_id) { // :array {
+    public function buscar_odometros($viatura_id) {
         $sqlBusca = "SELECT * FROM quilometragens WHERE viatura_id = $viatura_id";
         $resultado = $this->bd->query($sqlBusca);
         $odometros = [];
@@ -128,6 +128,18 @@ class RepositorioViaturas {
         }
 
         return $odometro;
+    }
+
+    public function buscar_manutencoes($viatura_id) {
+        $sqlBusca = "SELECT * FROM manutencao WHERE viatura_id = $viatura_id";
+        $resultado = $this->bd->query($sqlBusca);
+        $manutencoes = [];
+
+        while ($manutencao = $resultado->fetchObject('Manutencao')) {
+            $manutencoes[] = $manutencao;
+        }
+
+        return $manutencao;
     }
 
     public function buscar_anexo(/*int*/ $anexo_id) { //: Anexo {

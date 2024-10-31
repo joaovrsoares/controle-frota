@@ -12,7 +12,7 @@ class Viatura {
     /**
      * @var Array de Odometro
      */
-    private $odometros;
+    public $odometro;
 
     public function __construct() {
         $this->odometros = [];

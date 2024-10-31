@@ -28,7 +28,7 @@
             </td>
             <td><?php echo htmlentities($viatura->getMarca() . ' ' . $viatura->getModelo()); ?></td>
             <td class="centro"><?php echo converte_data_para_tela(dias_restantes('2024-11-01')) . 'dias';?></td>
-            <td class="centro"><?php echo quilometros_restantes(1000);?></td>
+            <td class="centro"><?php echo quilometros_restantes($viatura);?></td>
             <td class="centro"><?php echo converte_concluida($viatura->getConcluida());?></td>
             <td>
                 <a href="index.php?rota=editar&id=<?php echo $viatura->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>

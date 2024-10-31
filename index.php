@@ -16,7 +16,6 @@ if (array_key_exists("rota", $_GET)) {
     $rota = $_GET["rota"];
 }
 
-// Adicione este log para verificar a rota sendo utilizada
 error_log("Rota solicitada: " . $rota);
 
 if (is_file("controllers/" . $rota . ".php")) {

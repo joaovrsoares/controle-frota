@@ -3,7 +3,7 @@
 class Odometro {
     private $id = 0;
     private $viatura_id = 0;
-    private $odometro = '';
+    private $quilometragem = '';
     private $data = '';
 
     public function setId($id) {
@@ -22,12 +22,12 @@ class Odometro {
         return $this->viatura_id;
     }
 
-    public function setOdometro($odometro) {
-        $this->odometro = $odometro;
+    public function setQuilometragem($quilometragem) {
+        $this->quilometragem = $quilometragem;
     }
 
-    public function getOdometro() {
-        return $this->odometro;
+    public function getQuilometragem() {
+        return $this->quilometragem;
     }
 
     public function setData($data) {

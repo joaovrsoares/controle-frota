@@ -105,6 +105,8 @@ function dias_restantes($dataFutura) {
     return $diferenca->days * ($diferenca->invert ? -1 : 1);
 }
 
-function quilometros_restantes($km) {
-    return $odometro->getOdometro() - $km;
+function quilometros_restantes($viatura) {
+    $odometro = new Odometro();
+    $kmDestino = 
+    return $odometro->getQuilometragem() - $km;
 }
