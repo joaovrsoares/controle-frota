@@ -25,27 +25,27 @@
             <div class="campos">
                 <div>
                     <label for="prefixo">Prefixo</label>
-                    <input type="text" id="prefixo" name="prefixo">
+                    <input type="text" id="prefixo" name="prefixo" placeholder="0000" maxlength="4" required>
                 </div>
                 <div>
                     <label for="placa">Placa</label>
-                    <input type="text" id="placa" name="placa">
+                    <input type="text" id="placa" name="placa" placeholder="XXX0X00" maxlength="7" required>
                 </div>
                 <div>
                     <label for="marca">Marca</label>
-                    <input type="text" id="marca" name="marca">
+                    <input type="text" id="marca" name="marca" placeholder="Chevrolet" maxlength="50" required>
                 </div>
                 <div>
                     <label for="modelo">Modelo</label>
-                    <input type="text" id="modelo" name="modelo">
+                    <input type="text" id="modelo" name="modelo" placeholder="Tracker" maxlength="50" required>
                 </div>
                 <div>
                     <label for="ano">Ano</label>
-                    <input type="text" id="ano" name="ano">
+                    <input type="text" id="ano" name="ano" placeholder="2024" maxlength="4" required>
                 </div>
                 <div>
                     <label for="limite">Limite de manutenção (km)</label>
-                    <input type="text" id="limite" name="limite">
+                    <input type="text" id="limite" name="limite" placeholder="00000" maxlength="5" required>
                 </div>
             </div>
             <button type="submit">+ Cadastrar nova viatura</button>
@@ -56,27 +56,3 @@
     <?php include 'tabela.php'; ?>
 </body>
 </html>
-
-<!--
-<form action="/controle_frota/viaturas/cadastrar" method="POST">
-    <label for="prefixo">Prefixo:</label>
-    <input type="text" name="prefixo" required>
-    
-    <label for="placa">Placa:</label>
-    <input type="text" name="placa" required>
-    
-    <label for="marca">Marca:</label>
-    <input type="text" name="marca" required>
-    
-    <label for="modelo">Modelo:</label>
-    <input type="text" name="modelo" required>
-    
-    <label for="ano">Ano:</label>
-    <input type="number" name="ano" required>
-    
-    <label for="limite_manutencao">Limite de Manutenção (km):</label>
-    <input type="number" name="limite_manutencao" required>
-    
-    <button type="submit">Cadastrar Viatura</button>
-</form>
--->

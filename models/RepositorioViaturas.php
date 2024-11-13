@@ -30,7 +30,7 @@ class RepositorioViaturas {
             VALUES
                 (
                     {$prefixo},
-                    {$placa},
+                    '{$placa}',
                     '{$marca}',
                     '{$modelo},
                     {$ano},
@@ -150,7 +150,7 @@ class RepositorioViaturas {
     }
 
     public function remover(int $id) {
-        $sqlRemover = "DELETE FROM anexos WHERE viatura_id = {$id}; DELETE FROM viaturas WHERE id = {$id}";
+        $sqlRemover = "DELETE FROM quilometragens WHERE viatura_id = {$id}; DELETE FROM viaturas WHERE id = {$id}";
 
         $this->bd->query($sqlRemover);
     }

@@ -7,6 +7,7 @@ class Viatura {
     private $marca = '';
     private $modelo = '';
     private $ano = 0;
+    private $odometros = array();
     private $limite = null;
 
     /**
@@ -87,13 +88,6 @@ class Viatura {
     }
 
     public function getLimite() {
-        if (is_string($this->limite) && !empty($this->limite)) {
-            $this->limite = DateTime::createFromFormat('Y-m-d', $this->limite);
-        } elseif ($this->limite == '') {
-            $this->limite = null;
-        }
-
         return $this->limite;
     }
-
 }

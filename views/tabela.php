@@ -12,7 +12,7 @@
         <td>VW SPACECROSS</td>
         <td>57 dias</td>
         <td>2.032 km</td>
-        <td>61328 km</td>
+        <td>61.328 km</td>
         <td>63.360 km</td>
         <td>
             <a href="index.php?rota=editar&id=<?php echo $viatura->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>
@@ -28,8 +28,8 @@
             </td>
             <td><?php echo htmlentities($viatura->getMarca() . ' ' . $viatura->getModelo()); ?></td>
             <td class="centro"><?php echo converte_data_para_tela(dias_restantes('2024-11-01')) . 'dias';?></td>
-            <td class="centro"><?php echo quilometros_restantes($viatura);?></td>
-            <td class="centro"><?php echo converte_concluida($viatura->getConcluida());?></td>
+            <td class="centro"><?php echo $repositorio_viaturas->buscar_odometros($viatura->getId());?></td>
+            <td class="centro"><?php ;?></td>
             <td>
                 <a href="index.php?rota=editar&id=<?php echo $viatura->getId();?>" title="Editar" class="acao">✏️ Editar</a><br>
                 <a href="index.php?rota=remover&id=<?php echo $viatura->getId();?>" title="Remover" class="acao">🗑️ Remover</a>

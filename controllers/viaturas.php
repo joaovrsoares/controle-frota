@@ -33,9 +33,9 @@ if (tem_post()) {
     }
 
     if (array_key_exists('ano', $_POST)) {
-        $tarefa->setDescricao($_POST['ano']);
+        $viatura->setAno($_POST['ano']);
     } else {
-        $tarefa['ano'] = '';
+        $viatura['ano'] = '';
     }
 
     /*if (array_key_exists('prazo', $_POST) && strlen($_POST['prazo']) > 0) {
